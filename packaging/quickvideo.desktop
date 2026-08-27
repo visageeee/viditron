@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=QuickVideo
+Comment=Quick video editing with FFmpeg
+Exec=quickvideo %f
+Icon=io.github.quickvideo.QuickVideo
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/mpeg;
+Keywords=video;ffmpeg;crop;trim;rotate;audio;youtube;
+StartupNotify=true
+StartupWMClass=io.github.quickvideo.QuickVideo
