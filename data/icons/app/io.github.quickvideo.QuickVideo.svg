@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1015" height="1058" viewBox="0 0 1015 1058">
+  <defs>
+    <linearGradient id="blue-cyan" gradientUnits="userSpaceOnUse"
+                    x1="0" y1="0" x2="1015" y2="1058">
+      <stop offset="0" stop-color="#2c50fb"/>
+      <stop offset="0.52" stop-color="#137dfb"/>
+      <stop offset="1" stop-color="#00faf8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Crop frame -->
+  <g fill="none" stroke="url(#blue-cyan)" stroke-width="80"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 180H932"/>
+    <path d="M162 42V873H970"/>
+    <path d="M856 180V1016"/>
+  </g>
+
+  <!-- Film perforations -->
+  <g fill="url(#blue-cyan)">
+    <rect x="221" y="259" width="90" height="68" rx="22"/>
+    <rect x="221" y="377" width="90" height="68" rx="22"/>
+    <rect x="221" y="495" width="90" height="68" rx="22"/>
+    <rect x="221" y="613" width="90" height="68" rx="22"/>
+    <rect x="221" y="731" width="90" height="68" rx="22"/>
+
+    <rect x="710" y="259" width="90" height="68" rx="22"/>
+    <rect x="710" y="377" width="90" height="68" rx="22"/>
+    <rect x="710" y="495" width="90" height="68" rx="22"/>
+    <rect x="710" y="613" width="90" height="68" rx="22"/>
+    <rect x="710" y="731" width="90" height="68" rx="22"/>
+  </g>
+</svg>

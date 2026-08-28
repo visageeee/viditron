@@ -14,7 +14,7 @@ mkdir -p \
   "$BUILD/usr/bin" \
   "$BUILD/usr/lib/quickvideo" \
   "$BUILD/usr/share/applications" \
-  "$BUILD/usr/share/icons/hicolor/256x256/apps" \
+  "$BUILD/usr/share/icons/hicolor/scalable/apps" \
   "$BUILD/usr/share/doc/quickvideo"
 
 cp -a "$ROOT/quickvideo" "$BUILD/usr/lib/quickvideo/"
@@ -22,8 +22,23 @@ cp -a "$ROOT/data" "$BUILD/usr/lib/quickvideo/"
 cp "$ROOT/run.py" "$BUILD/usr/lib/quickvideo/run.py"
 cp "$ROOT/packaging/quickvideo-launcher" "$BUILD/usr/bin/quickvideo"
 cp "$ROOT/packaging/quickvideo.desktop" "$BUILD/usr/share/applications/quickvideo.desktop"
-cp "$ROOT/data/icons/quickvideo.png" "$BUILD/usr/share/icons/hicolor/256x256/apps/io.github.quickvideo.QuickVideo.png"
-cp "$ROOT/data/icons/quickvideo.png" "$BUILD/usr/share/icons/hicolor/256x256/apps/quickvideo.png"
+ICON_NAME="io.github.quickvideo.QuickVideo"
+ICON_ROOT="$ROOT/data/icons/app"
+
+# Install bundled raster icons so desktops/window managers such as Xfce can
+# select a native size instead of having to scale the SVG themselves.
+for SIZE in 16 24 32 48 64 128 256; do
+  DEST="$BUILD/usr/share/icons/hicolor/${SIZE}x${SIZE}/apps"
+  mkdir -p "$DEST"
+  cp "$ICON_ROOT/${SIZE}x${SIZE}/${ICON_NAME}.png" "$DEST/${ICON_NAME}.png"
+  cp "$ICON_ROOT/${SIZE}x${SIZE}/${ICON_NAME}.png" "$DEST/quickvideo.png"
+done
+
+# Keep the scalable icon for launchers/desktops that handle SVG correctly.
+cp "$ICON_ROOT/${ICON_NAME}.svg" \
+  "$BUILD/usr/share/icons/hicolor/scalable/apps/${ICON_NAME}.svg"
+cp "$ICON_ROOT/${ICON_NAME}.svg" \
+  "$BUILD/usr/share/icons/hicolor/scalable/apps/quickvideo.svg"
 cp "$ROOT/README.md" "$BUILD/usr/share/doc/quickvideo/README.md"
 
 chmod 0755 "$BUILD/DEBIAN"

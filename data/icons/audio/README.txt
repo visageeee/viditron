@@ -1,5 +1,10 @@
-Expected PNG icon files:
-volume.png
-mute.png
-normalize.png
-remove-audio.png
+Expected audio PNGs:
+volume.svg
+pitch.svg
+voice-clarity.svg
+rumble-reduction.svg
+mute.svg
+normalize.svg
+remove-audio.svg
+
+Audio icons are displayed at 64x64.
