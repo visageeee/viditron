@@ -1,6 +1,72 @@
 # QuickVideo
 
-GTK4 prototype for quick FFmpeg video edits.
+QuickVideo brings FFmpeg and yt-dlp together in a lightweight GTK4 app for quick video jobs. Without leaving the app, you can download a video from YouTube or Instagram, crop and trim it, adjust the picture or audio, and even censor parts you don't want to show with black bars, then convert and export it ready to share.
+
+![QuickVideo screenshot](screenshot.png)
+
+## Features
+
+### Crop, Trim & Rotate
+
+- Interactive crop rectangle directly over the video preview
+- Drag handles for moving and resizing the crop
+- Preset, free and custom aspect ratios
+- Exact X, Y, width and height controls
+- Interactive trim handles on the timeline
+- Exact trim start/end times
+- Rotate left or right
+- Flip horizontally or vertically
+
+### Image & Playback
+
+Adjust:
+
+- Brightness
+- Contrast
+- Saturation
+- Gamma
+- Temperature
+- Sharpness
+- Playback speed
+
+Image adjustments can be previewed before exporting.
+
+### Audio
+
+Adjust:
+
+- Volume
+- Mute
+- Normalize
+- Remove audio
+- Audio pitch
+- Voice clarity
+- Rumble reduction
+
+### Censor Video
+
+- Draw black censor bars directly on the video preview
+- Move and resize censor regions
+- Set individual start and end times
+- Use multiple censor regions at once
+- Color-coded regions and timeline ranges
+- Censor bars are rendered into the exported video with FFmpeg
+
+### Video Downloads
+
+With `yt-dlp` installed, QuickVideo can download videos from YouTube, Instagram and other sites supported by `yt-dlp`, then open them directly for editing.
+
+Downloaded videos are saved to:
+
+```text
+~/Downloads/QuickVideo/
+```
+
+### Export
+
+QuickVideo builds the appropriate FFmpeg filter chain from your edits and exports the result without modifying the original file.
+
+Export options include different quality/compression levels, lossless output and target file size.
 
 ## Ubuntu / Debian dependencies
 
@@ -10,7 +76,15 @@ sudo apt install python3-gi gir1.2-gtk-4.0 ffmpeg \
   gstreamer1.0-plugins-bad gstreamer1.0-libav
 ```
 
-## Run
+For video downloading, optionally install:
+
+```bash
+sudo apt install yt-dlp
+```
+
+## Run from source
+
+From the project directory:
 
 ```bash
 python3 run.py
@@ -22,65 +96,19 @@ Or open a video directly:
 python3 run.py /path/to/video.mp4
 ```
 
-## Current crop / trim / rotate prototype
-
-- Crop section
-  - Define trim area button
-  - draggable crop rectangle in the video preview
-  - corner and edge handles
-  - X / Y / Width / Height exact pixel fields
-- Trim section
-  - Define trim button
-  - draggable in/out handles below the video controls
-  - exact start/end timecode fields
-- Rotate section
-  - rotate left/right
-  - horizontal/vertical flip
-- Crop and Trim update one action each in the action queue
-
-## Current editing interaction
-
-- Crop handles are always shown over a loaded video.
-- The full source frame is neutral; moving/resizing the crop handles creates a Crop action.
-- Returning crop to the full frame removes the Crop action.
-- Trim handles are always shown below the transport controls.
-- The full duration is neutral; moving a trim handle creates a Trim action.
-- Returning trim to the full duration removes the Trim action.
-- QuickVideo uses its own play/pause, seek slider, and current/total time display instead of Gtk.MediaControls.
-
-## Export test
-
-The Export Video button now uses the desktop portal to choose an output path and runs FFmpeg asynchronously.
-The generated FFmpeg command is printed in the terminal for debugging.
-
-Currently wired to export:
-- Trim
-- Crop
-- Rotate left/right
-- Horizontal/vertical flip
-- Brightness, contrast, saturation and gamma
-- Volume, mute, normalization and audio removal
-
-Join Clips is intentionally blocked during export for now rather than generating an incorrect concat command.
-The first export target uses H.264 (`libx264`, CRF 18) and AAC 192 kb/s.
-
-## Optional YouTube/video downloads
-
-Install `yt-dlp`:
-
-```bash
-sudo apt install yt-dlp
-```
-
 ## Debian package
 
-Build the package locally with:
+Build a package with:
 
 ```bash
 ./packaging/build-deb.sh 0.1.0
 ```
 
-The package is written to `dist/quickvideo_0.1.0_all.deb`.
+The resulting package is written to:
+
+```text
+dist/quickvideo_0.1.0_all.deb
+```
 
 Install it with:
 
@@ -88,7 +116,7 @@ Install it with:
 sudo apt install ./dist/quickvideo_0.1.0_all.deb
 ```
 
-After installation, launch QuickVideo from the application menu or with:
+QuickVideo can then be launched from the application menu or from a terminal:
 
 ```bash
 quickvideo
@@ -100,6 +128,8 @@ You can also open a video directly:
 quickvideo /path/to/video.mp4
 ```
 
-`yt-dlp` is a recommended dependency for the Download Video feature.
+`yt-dlp` is a recommended rather than required dependency.
 
-The application icon source is `data/icons/quickvideo.png`. Replace that PNG and rebuild the package to use your final artwork.
+## Status
+
+QuickVideo is under active development. It is intended as a quick editing utility rather than a replacement for a full non-linear video editor.
