@@ -16,7 +16,7 @@ class PortalFileChooser:
         self._subscriptions = {}
 
     def open_file(self, title, callback, multiple=False):
-        token = f"quickvideo_{secrets.token_hex(6)}"
+        token = f"viditron_{secrets.token_hex(6)}"
         options = {
             "multiple": GLib.Variant("b", bool(multiple)),
             "directory": GLib.Variant("b", False),
@@ -40,7 +40,7 @@ class PortalFileChooser:
 
 
     def save_file(self, title, callback, suggested_name='edited.mp4'):
-        token = f"quickvideo_{secrets.token_hex(6)}"
+        token = f"viditron_{secrets.token_hex(6)}"
         options = {
             "handle_token": GLib.Variant("s", token),
             "current_name": GLib.Variant("s", suggested_name),

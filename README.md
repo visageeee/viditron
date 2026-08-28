@@ -1,8 +1,8 @@
-# QuickVideo
+# Viditron
 
-QuickVideo brings FFmpeg and yt-dlp together in a lightweight GTK4 app for quick video jobs. Without leaving the app, you can download a video from YouTube or Instagram, crop and trim it, adjust the picture or audio, and even censor parts you don't want to show with black bars, then convert and export it ready to share.
+Viditron brings FFmpeg and yt-dlp together in a lightweight GTK4 app for quick video jobs. Without leaving the app, you can download a video from YouTube or Instagram, crop and trim it, adjust the picture or audio, and even censor parts you don't want to show with black bars, then convert and export it ready to share.
 
-![QuickVideo screenshot](screenshot.png)
+![Viditron screenshot](screenshot.png)
 
 ## Features
 
@@ -54,17 +54,17 @@ Adjust:
 
 ### Video Downloads
 
-With `yt-dlp` installed, QuickVideo can download videos from YouTube, Instagram and other sites supported by `yt-dlp`, then open them directly for editing.
+With `yt-dlp` installed, Viditron can download videos from YouTube, Instagram and other sites supported by `yt-dlp`, then open them directly for editing.
 
 Downloaded videos are saved to:
 
 ```text
-~/Downloads/QuickVideo/
+~/Downloads/Viditron/
 ```
 
 ### Export
 
-QuickVideo builds the appropriate FFmpeg filter chain from your edits and exports the result without modifying the original file.
+Viditron builds the appropriate FFmpeg filter chain from your edits and exports the result without modifying the original file.
 
 Export options include different quality/compression levels, lossless output and target file size.
 
@@ -107,29 +107,29 @@ Build a package with:
 The resulting package is written to:
 
 ```text
-dist/quickvideo_0.1.0_all.deb
+dist/viditron_0.1.0_all.deb
 ```
 
 Install it with:
 
 ```bash
-sudo apt install ./dist/quickvideo_0.1.0_all.deb
+sudo apt install ./dist/viditron_0.1.0_all.deb
 ```
 
-QuickVideo can then be launched from the application menu or from a terminal:
+Viditron can then be launched from the application menu or from a terminal:
 
 ```bash
-quickvideo
+viditron
 ```
 
 You can also open a video directly:
 
 ```bash
-quickvideo /path/to/video.mp4
+viditron /path/to/video.mp4
 ```
 
 `yt-dlp` is a recommended rather than required dependency.
 
 ## Status
 
-QuickVideo is under active development. It is intended as a quick editing utility rather than a replacement for a full non-linear video editor.
+Viditron is under active development. It is intended as a quick editing utility rather than a replacement for a full non-linear video editor.

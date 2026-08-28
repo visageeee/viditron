@@ -801,8 +801,8 @@ class UnifiedTimeline(Gtk.DrawingArea):
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, application):
         super().__init__(application=application)
-        self.set_title('QuickVideo')
-        print('QuickVideo build: scroll-custom-ratio-fix')
+        self.set_title('Viditron')
+        print('Viditron build: scroll-custom-ratio-fix')
         self.set_default_size(1450, 820)
         self.set_size_request(1180, 480)
 
@@ -1183,7 +1183,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.censor_overlay.set_active(False)
         self.video_overlay.add_overlay(self.censor_overlay)
 
-        # QuickVideo's own compact transport controls.
+        # Viditron's own compact transport controls.
         transport = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
         transport.set_margin_top(6)
         transport.set_margin_bottom(2)
@@ -2853,7 +2853,7 @@ class MainWindow(Gtk.ApplicationWindow):
             self.load_file(path)
             return True
         uri = file.get_uri()
-        self._show_load_error(f'QuickVideo currently needs a local file. Got: {uri}')
+        self._show_load_error(f'Viditron currently needs a local file. Got: {uri}')
         return False
 
     def load_file(self, path):
@@ -2973,7 +2973,7 @@ class MainWindow(Gtk.ApplicationWindow):
         content.set_margin_end(16)
 
         label = Gtk.Label(
-            label='Paste a video URL. QuickVideo will download it with yt-dlp and open it automatically.',
+            label='Paste a video URL. Viditron will download it with yt-dlp and open it automatically.',
             xalign=0,
         )
         label.set_wrap(True)
@@ -2986,7 +2986,7 @@ class MainWindow(Gtk.ApplicationWindow):
         content.append(entry)
 
         location = Gtk.Label(
-            label='Downloads are saved in ~/Downloads/QuickVideo/',
+            label='Downloads are saved in ~/Downloads/Viditron/',
             xalign=0,
         )
         location.add_css_class('dim-label')
@@ -3005,7 +3005,7 @@ class MainWindow(Gtk.ApplicationWindow):
         dialog.present()
 
     def _start_ytdlp_download(self, url):
-        download_dir = Path.home() / 'Downloads' / 'QuickVideo'
+        download_dir = Path.home() / 'Downloads' / 'Viditron'
         download_dir.mkdir(parents=True, exist_ok=True)
 
         output_template = str(download_dir / '%(title).180B [%(id)s].%(ext)s')
@@ -3151,7 +3151,7 @@ class MainWindow(Gtk.ApplicationWindow):
         else:
             GLib.idle_add(
                 self._on_ytdlp_failed,
-                'yt-dlp finished, but QuickVideo could not determine the downloaded file path.',
+                'yt-dlp finished, but Viditron could not determine the downloaded file path.',
             )
 
     def _update_ytdlp_progress(self, fraction, percent_text, speed, eta):
@@ -3300,7 +3300,7 @@ class MainWindow(Gtk.ApplicationWindow):
         return GLib.SOURCE_REMOVE
 
     def _render_image_preview_frame(self, generation, timestamp, filters):
-        path = Path(tempfile.gettempdir()) / f'quickvideo-preview-{generation}.png'
+        path = Path(tempfile.gettempdir()) / f'viditron-preview-{generation}.png'
         cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
                '-ss', f'{timestamp:.6f}', '-i', str(self.current_file),
                '-frames:v', '1', '-vf', ','.join(filters), str(path)]
@@ -3745,7 +3745,7 @@ class MainWindow(Gtk.ApplicationWindow):
             return
         output_path = file.get_path()
         if not output_path:
-            self._show_export_error('QuickVideo currently needs a local output path.')
+            self._show_export_error('Viditron currently needs a local output path.')
             return
 
         try:

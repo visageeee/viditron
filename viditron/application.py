@@ -8,16 +8,16 @@ from gi.repository import Gtk, Gio
 from .window import MainWindow
 
 
-class QuickVideoApplication(Gtk.Application):
+class ViditronApplication(Gtk.Application):
     def __init__(self):
         super().__init__(
-            application_id="io.github.quickvideo.QuickVideo",
+            application_id="io.github.visageeee.Viditron",
             flags=Gio.ApplicationFlags.HANDLES_OPEN,
         )
         # GTK/X11 uses this as the desktop/WM identity. It must match the
-        # StartupWMClass in quickvideo.desktop so docks group the running
+        # StartupWMClass in viditron.desktop so docks group the running
         # window with the installed launcher rather than showing "run.py".
-        self.set_resource_base_path("/io/github/quickvideo/QuickVideo")
+        self.set_resource_base_path("/io/github/visageeee/Viditron")
 
     def do_activate(self):
         window = self.props.active_window
@@ -33,7 +33,7 @@ class QuickVideoApplication(Gtk.Application):
 
 
 def main():
-    app = QuickVideoApplication()
+    app = ViditronApplication()
     return app.run(sys.argv)
 
 
