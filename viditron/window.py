@@ -1134,6 +1134,7 @@ class MainWindow(Gtk.ApplicationWindow):
         open_download_row.append(self.center_open_button)
 
         self.download_video_button = Gtk.Button(label='Download Video...')
+        self.download_video_button.add_css_class('preview-download-button')
         self.download_video_button.set_size_request(190, 50)
         self.download_video_button.connect('clicked', self._on_download_video)
         open_download_row.append(self.download_video_button)
@@ -2408,6 +2409,9 @@ class MainWindow(Gtk.ApplicationWindow):
         .preview-area, .player-area { background: #111111; min-height: 360px; }
         .preview-area { padding: 24px; }
         .preview-area label { color: #dddddd; }
+        /* Button labels must follow the active GTK theme rather than inherit
+         * the light-on-dark preview text colour. */
+        .preview-area .preview-download-button label { color: @theme_fg_color; }
         .info-card { padding: 0; }
         .theme-toggle {
             min-width: 30px;
@@ -2445,6 +2449,7 @@ class MainWindow(Gtk.ApplicationWindow):
             font-size: 1.05em;
             padding: 2px 9px;
             background: #303030;
+            color: #f2f2f2;
             border: 1px solid alpha(@theme_fg_color, 0.18);
             border-radius: 7px;
         }
@@ -3993,4 +3998,5 @@ class MainWindow(Gtk.ApplicationWindow):
         if detail:
             dialog.set_detail(detail)
         dialog.show(self)
+
 
