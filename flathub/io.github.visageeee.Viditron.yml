@@ -27,8 +27,8 @@ modules:
       - for size in 16 24 32 48 64 128 256; do install -Dm644 data/icons/app/${size}x${size}/io.github.visageeee.Viditron.png /app/share/icons/hicolor/${size}x${size}/apps/io.github.visageeee.Viditron.png; done
     sources:
       - type: archive
-        url: https://github.com/visageeee/viditron/archive/refs/tags/v0.1.3.tar.gz
-        sha256: ea3e9ab90596535ddc8fc9495cb0daded9b94ad20cdc62e04cc3354253e21d4d
+        url: https://github.com/visageeee/viditron/archive/refs/tags/v0.1.4.tar.gz
+        sha256: 0c855eed285b21073a39f7b6362d1d9facfaa29d9568639f3a60611611f3f682
       - type: file
         url: https://github.com/yt-dlp/yt-dlp/releases/download/2026.08.19/yt-dlp
         sha256: 1fa6733c37ea6fb51c99ad8fe785e7b7e5f3246c9b980230329d4fb72ed8d4d6
