@@ -1,0 +1,19 @@
+Source: viditron
+Section: video
+Priority: optional
+Maintainer: Olof Strandman <olle.strandman@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.2
+Homepage: https://github.com/visageeee/viditron
+Vcs-Browser: https://github.com/visageeee/viditron
+Vcs-Git: https://github.com/visageeee/viditron.git
+Rules-Requires-Root: no
+
+Package: viditron
+Architecture: all
+Depends: ${misc:Depends}, python3, python3-gi, gir1.2-gtk-4.0, ffmpeg, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, gstreamer1.0-plugins-bad, gstreamer1.0-libav
+Recommends: yt-dlp
+Description: quick GTK frontend for common FFmpeg video edits
+ Viditron provides a graphical interface for downloading, trimming, cropping,
+ rotating and adjusting video and audio. It builds an FFmpeg filter chain and
+ exports the edited result without modifying the original file.
