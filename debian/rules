@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+
+override_dh_auto_install:
+	install -d debian/viditron/usr/bin
+	install -d debian/viditron/usr/lib/viditron
+	install -d debian/viditron/usr/share/applications
+	install -d debian/viditron/usr/share/icons/hicolor/scalable/apps
+	cp -a viditron debian/viditron/usr/lib/viditron/
+	cp -a data debian/viditron/usr/lib/viditron/
+	install -m 0755 run.py debian/viditron/usr/lib/viditron/run.py
+	install -m 0755 packaging/viditron-launcher debian/viditron/usr/bin/viditron
+	install -m 0644 packaging/viditron.desktop debian/viditron/usr/share/applications/viditron.desktop
+	for size in 16 24 32 48 64 128 256; do \
+		icon_dir="$${size}x$${size}"; \
+		install -d debian/viditron/usr/share/icons/hicolor/$$icon_dir/apps; \
+		install -m 0644 data/icons/app/$$icon_dir/io.github.visageeee.Viditron.png \
+			debian/viditron/usr/share/icons/hicolor/$$icon_dir/apps/io.github.visageeee.Viditron.png; \
+	done
+	install -m 0644 data/icons/app/io.github.visageeee.Viditron.svg \
+		debian/viditron/usr/share/icons/hicolor/scalable/apps/io.github.visageeee.Viditron.svg
