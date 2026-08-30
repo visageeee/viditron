@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Viditron
+Comment=Download, edit and export video quickly
+Exec=viditron %f
+Icon=io.github.visageeee.Viditron
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/mpeg;
+Keywords=video;ffmpeg;crop;trim;rotate;audio;youtube;
+StartupNotify=true
+StartupWMClass=io.github.visageeee.Viditron
