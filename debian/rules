@@ -16,9 +16,10 @@ override_dh_auto_install:
 	install -m 0755 packaging/viditron-launcher debian/viditron/usr/bin/viditron
 	install -m 0644 packaging/viditron.desktop debian/viditron/usr/share/applications/viditron.desktop
 	for size in 16 24 32 48 64 128 256; do \
-		install -d debian/viditron/usr/share/icons/hicolor/$$sizex$$size/apps; \
-		install -m 0644 data/icons/app/$$sizex$$size/io.github.visageeee.Viditron.png \
-			debian/viditron/usr/share/icons/hicolor/$$sizex$$size/apps/io.github.visageeee.Viditron.png; \
+		icon_dir="$${size}x$${size}"; \
+		install -d debian/viditron/usr/share/icons/hicolor/$$icon_dir/apps; \
+		install -m 0644 data/icons/app/$$icon_dir/io.github.visageeee.Viditron.png \
+			debian/viditron/usr/share/icons/hicolor/$$icon_dir/apps/io.github.visageeee.Viditron.png; \
 	done
 	install -m 0644 data/icons/app/io.github.visageeee.Viditron.svg \
 		debian/viditron/usr/share/icons/hicolor/scalable/apps/io.github.visageeee.Viditron.svg
