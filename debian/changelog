@@ -1,4 +1,4 @@
-viditron (0.1.0~ppa1) resolute; urgency=medium
+viditron (0.1.0+ppa1~resolute1) resolute; urgency=medium
 
   * Initial Launchpad PPA package.
 
