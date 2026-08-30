@@ -68,7 +68,25 @@ Viditron builds the appropriate FFmpeg filter chain from your edits and exports 
 
 Export options include different quality/compression levels, lossless output and target file size.
 
+## Install
+
+The easiest way to install Viditron on Ubuntu or Debian is to download the latest `.deb` from the [GitHub Releases page](https://github.com/visageeee/viditron/releases/latest).
+
+Then install the downloaded package with:
+
+```bash
+sudo apt install ./viditron_*.deb
+```
+
+Viditron can then be launched from the application menu or from a terminal:
+
+```bash
+viditron
+```
+
 ## Ubuntu / Debian dependencies
+
+The Debian package installs the required dependencies automatically. To install them manually when running from source:
 
 ```bash
 sudo apt install python3-gi gir1.2-gtk-4.0 ffmpeg \
@@ -84,9 +102,11 @@ sudo apt install yt-dlp
 
 ## Run from source
 
-From the project directory:
+Clone the repository and enter the project directory:
 
 ```bash
+git clone https://github.com/visageeee/viditron.git
+cd viditron
 python3 run.py
 ```
 
@@ -96,7 +116,7 @@ Or open a video directly:
 python3 run.py /path/to/video.mp4
 ```
 
-## Debian package
+## Build Debian package
 
 Build a package with:
 
@@ -114,18 +134,6 @@ Install it with:
 
 ```bash
 sudo apt install ./dist/viditron_0.1.0_all.deb
-```
-
-Viditron can then be launched from the application menu or from a terminal:
-
-```bash
-viditron
-```
-
-You can also open a video directly:
-
-```bash
-viditron /path/to/video.mp4
 ```
 
 `yt-dlp` is a recommended rather than required dependency.
