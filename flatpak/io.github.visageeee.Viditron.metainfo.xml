@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.visageeee.Viditron</id>
+  <name>Viditron</name>
+  <summary>Download, edit and export video quickly</summary>
+  <developer id="io.github.visageeee">
+    <name>Olof Strandman</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>
+    <p>
+      Viditron is a lightweight GTK application for quick video jobs using
+      FFmpeg and yt-dlp.
+    </p>
+    <p>
+      Crop, trim and rotate video; adjust picture and audio; add timed censor
+      bars; download supported online videos; and export the result without
+      modifying the original file.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.visageeee.Viditron.desktop</launchable>
+  <url type="homepage">https://github.com/visageeee/viditron</url>
+  <url type="bugtracker">https://github.com/visageeee/viditron/issues</url>
+  <url type="vcs-browser">https://github.com/visageeee/viditron</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/visageeee/viditron/main/screenshot.png</image>
+      <caption>Editing a video in Viditron</caption>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.0" date="2026-08-30">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+</component>
